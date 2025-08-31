@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+/* Logo */
+.logo {
+     font-size: 30px;
+    font-weight: bold;
+    color: rgb(155, 247, 17);
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color:  rgb(155, 247, 17);
+}
+
+/* Hamburger Icon */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive for 541px and below */
+@media (max-width: 541px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+/* Banner */
+.banner {
+    background: url(./image/5.avif) no-repeat center/cover;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+    object-fit: cover;
+}
+
+.banner h1 {
+    font-size: 48px;
+    font-family: Arial, sans-serif;
+      font-size: 40px;
+      text-align: center;
+      color: #4CAF50;
+     animation: slideInLeft 2s ease-out forwards;
+    
+}
+
+@keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-200px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+ .banner p {
+      font-size: 18px;
+      margin: 15px 0;
+      text-align: center;
+      opacity: 0;
+      color: #8be38e;
+      animation: fadeInUp 2s ease-out forwards;
+      animation-delay: 2s; /* h1 k baad ye chalega */
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+.banner .btn {
+    background: #a0e381;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.banner .btn:hover {
+    background:  rgb(155, 247, 17);
+}
+
+.main-container {
+    padding: 60px 20px;
+    background: white;
+}
+
+.main-container .class {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.main-container .img {
+    flex: 1;
+}
+
+.main-container .img img {
+    width: 100%;
+    max-width: 500px;  /* image ka size control */
+    border-radius: 12px;
+    display: block;
+}
+
+.main-container .text {
+    flex: 1;
+    text-align: left;
+}
+
+.main-container .text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.main-container .text p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 16px;
+    max-width: 500px;
+}
+
+/* ✅ Tablet */
+@media (max-width: 992px) {
+    .main-container {
+        padding: 40px 15px;
+    }
+    .main-container .class {
+        gap: 25px;
+    }
+    .main-container .text h2 {
+        font-size: 28px;
+    }
+    .main-container .text p {
+        font-size: 15px;
+    }
+}
+
+/* ✅ Mobile */
+@media (max-width: 768px) {
+    .main-container .class {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-container .img img {
+        max-width: 100%;
+    }
+
+    .main-container .text {
+        text-align: center;
+    }
+
+    .main-container .text h2 {
+        font-size: 24px;
+    }
+
+    .main-container .text p {
+        font-size: 14px;
+        margin: auto;
+    }
+}
+
+        /* Footer */
+
+footer {
+    background-color: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 20px 10px;
+}
+.footer-about .logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.footer-about p {
+    line-height: 1.5;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.social-icon a {
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.quick-links h3, .newslatter h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links ul li {
+    margin-bottom: 8px;
+}
+.quick-links ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.quick-links ul li a:hover {
+    color: white;
+}
+.newslatter p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.newslatter form {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+   
+}
+.btn-x {
+    background-color: orange;
+    height: 30px;
+    border: 1px solid orangered;
+   border-radius: 3px;
+   box-shadow: 0 3px white;
+}
+
+.btn-x:hover{
+    background-color: #b8b5b1;
+}
+
+input{
+    background-color: rgb(252, 252, 252);
+    height: 30px;
+    border: 1px solid orangered;
+    border-radius: 3px;
+}
+.newslatter img {
+    max-width: 150px;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    background-color: #111;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+    border-top: 1px solid #333;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        text-align: center;
+    }
+    .newslatter form {
+        flex-direction: column;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+   <header>
+    <div class="logo">Shopify</div>
+     <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+    <nav id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="About.html">About</a>
+       <a href="login.html">Login</a>
+    </nav>
+</header>
+
+ <!-- Banner -->
+    <section class="banner">
+        <h1>Welcome to  Shopify Store</h1>
+        <p>Best Deals on Quality Products</p>
+        <a href="#" class="btn">Shop Now</a>
+    </section>
+    
+<section class="main-container">
+    <div class="class">
+    <div class="img">
+        <img src="./image/about-image.jpg" alt="">
+    </div>
+    <div class="text">
+        <h2>Welcome to Fashion</h2>
+        <p>At Fashion, we bring you thoughtfully curated collection that blend modern travels with timeless elegance our mission is to help everyone express their unique style effortlessly through quality, affordable pieces. </p><br>
+        <p class="para">
+            From everyday essentials to statement outfits,each item is chosen with care to inspire confidence and creativity. We believe style should feel personal, accessible, and always evoloving.
+        </p>
+    </div>
+    </div>
+</section>
+
+<section class="main-container">
+    <div class="class">
+    <div class="img">
+        <img src="./image/product-12.webp" alt="" style="width: 80%; height: 300px;">
+    </div>
+    <div class="text">
+        <h2 style="font-size: 18px;">About cloth</h2>
+        <p>This fabric is branded, soft, and durable – a perfect choice for both casual and formal wear.High-quality branded cloth that is stylish and comfortable, ideal for everyday use. </p><br>
+        <p class="para">
+           Made from premium fabric, skin-friendly and long-lasting – combining fashion with comfort."
+        </p>
+    </div>
+    </div>
+</section>
+
+<section class="main-container">
+    <div class="class">
+    <div class="img">
+        <img src="./image/shoes 3.jpg" alt="" style="width: 80%; height: 300px;">
+    </div>
+    <div class="text">
+        <h2 style="font-size: 18px;">About Sport Shoes</h2>
+        <p>Branded sport shoes designed for comfort and durability, perfect for running and daily wear.Lightweight and stylish sport shoes with a strong grip, giving you both performance and comfort. </p><br>
+        <p class="para">
+            Premium quality sport shoes made with breathable material – ideal for sports, gym, and casual use.
+        </p>
+    </div>
+    </div>
+</section>
+     <!-- Footer -->
+    <footer>
+    <div class="footer-container">
+        
+        <!-- About Section -->
+        <div class="footer-about">
+            <p class="logo">Shopify</p>
+            <p>Urbanwear brings you curated collections of modern, stylish, and affordable outfits for every occasion.</p>
+            <div class="social-icon">
+                <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://pinterest.com" target="_blank" class="pinterest"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+
+        <!-- Shop Links -->
+        <div class="quick-links">
+            <h3>Shop</h3>
+            <ul>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Featured Products</a></li>
+                <li><a href="#">On Sale</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Best Sellers</a></li>
+            </ul>
+        </div>
+
+        <!-- Customer Service -->
+        <div class="quick-links">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newslatter">
+            <h3>Stay Updated</h3>
+            <p>Subscribe to get the latest updates on new arrivals and special offers.</p>
+            <form action="#">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-x">Subscribe</button>
+            </form>
+            <img src="./image/payments.png" alt="payment methods">
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Studentaptech753@gmail.com | All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- javascript -->
+ <script>
+function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("active");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 10px 20px;
+    color: #fff;
+    flex-wrap: wrap; /* responsive ke liye wrap allow */
+}
+
+/* Logo */
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(155, 247, 17);
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: rgb(155, 247, 17);
+}
+
+/* Hamburger Menu (Mobile Only) */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+    nav {
+        display: none; /* default hide */
+        flex-direction: column;
+        width: 100%;
+        background: #333;
+        padding: 10px 0;
+    }
+
+    nav.active {
+        display: flex; /* toggle ke baad show hoga */
+    }
+
+    .menu-toggle {
+        display: block; /* hamburger show */
+    }
+
+    header {
+        flex-wrap: nowrap;
+    }
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+   
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: rgb(155, 247, 17);
+}
+
+/* Hamburger Icon */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive for 541px and below */
+@media (max-width: 541px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+.banner {
+    background: url(./image/5.avif) no-repeat center/cover;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+    object-fit: cover;
+}
+
+.banner h1 {
+    font-size: 48px;
+    font-family: Arial, sans-serif;
+      font-size: 40px;
+      text-align: center;
+      color: #4CAF50;
+     animation: slideInLeft 2s ease-out forwards;
+    
+}
+
+@keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-200px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+ .banner p {
+      font-size: 18px;
+      margin: 15px 0;
+      text-align: center;
+      opacity: 0;
+      color: #8be38e;
+      animation: fadeInUp 2s ease-out forwards;
+      animation-delay: 2s; /* h1 k baad ye chalega */
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+.banner .btn {
+    background: #a0e381;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 0 3px rgb(5, 5, 5);
+}
+
+.banner .btn:hover {
+    background: rgb(155, 247, 17);
+}
+
+   section {
+    padding: 40px;
+    text-align: center;
+    background: white;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+ h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .card-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 200px;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .card button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .card button:hover {
+      background: #0056b3;
+    }
+    /* Cart Box */
+    .cart {
+      max-width: 500px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .cart h2 {
+      text-align: center;
+    }
+    .cart-items {
+      margin-top: 15px;
+    }
+    .cart-items p {
+      margin: 6px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+    .total {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: right;
+    }
+        /* Poster Section */
+.poster-section {
+    background: #f4f4f4;
+   margin: 20px 0;
+}
+
+.poster-section .main-container {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    max-width: 1200px;
+    width: 95%;
+    margin: auto;
+    gap: 20px;
+}
+
+ .paragraph p{
+   
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+ .paragraph h4{
+   
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.poster-section .sale-text {
+    font-size: 20px;
+    color: #ff9800;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.poster-section h4 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.poster-section .btn {
+    background: #ff9800;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.poster-section .btn:hover {
+    background: #cbae83;
+}
+
+.poster-section .img {
+    flex: 1;
+    text-align: right;
+}
+
+ .img img {
+    width: 50%;
+    height: 400px;
+   object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .poster-section .main-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .poster-section .img {
+        text-align: center;
+    }
+}
+.team-section {
+      text-align: center;
+    }
+    .team-section h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .team-members {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .team-member {
+      background: white;
+      padding: 15px;
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .team-member img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .team-member h4 {
+      margin: 10px 0 5px;
+    }
+/* footer */
+footer {
+    background-color: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 20px 10px;
+}
+.footer-about .logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.footer-about p {
+    line-height: 1.5;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.social-icon a {
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.quick-links h3, .newslatter h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links ul li {
+    margin-bottom: 8px;
+}
+.quick-links ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.quick-links ul li a:hover {
+    color: white;
+}
+.newslatter p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.newslatter form {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+   
+}
+.btn-x {
+    background-color: orange;
+    height: 30px;
+    border: 1px solid orangered;
+   border-radius: 3px;
+   box-shadow: 0 3px white;
+}
+
+.btn-x:hover{
+    background-color: #b8b5b1;
+}
+
+input{
+    background-color: rgb(252, 252, 252);
+    height: 30px;
+    border: 1px solid orangered;
+    border-radius: 3px;
+}
+.newslatter img {
+    max-width: 150px;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    background-color: #111;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+    border-top: 1px solid #333;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        text-align: center;
+    }
+    .newslatter form {
+        flex-direction: column;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+.fa {
+    color: gold;
+}
+
+.para{
+    font-size: 10px;
+    align-content: center;
+}
+
+
+  
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+   <header>
+    <div class="logo">Shopify</div>
+     <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+    <nav id="nav-menu">
+      <b>  <a href="index.html">Home</a></b>
+       <b><a href="Shop.html">Shop</a> </b>
+        <b> <a href="About.html">About</a></b>
+       <b> <a href="login.html">Login</a></b>
+    </nav>
+</header>
+
+ <!-- Banner -->
+    <section class="banner">
+        <h1>Welcome  to Shopify Store</h1>
+        <p>Best Deals on Quality Products</p>
+        <a href="#" class="btn">Shop Now</a>
+    </section>
+
+    <section>
+        <h1 style="text-align: center;padding-bottom: 5px;">Featured product</h1>
+        <p  style="text-align: center; font-size: 15px; padding-bottom: 5px;">Handpicked bestsellers and new elevate your Wordrobe</p>
+    <div class="card-container">
+        <div class="card">
+            <img src="./image/handbag1.jpg" alt="Card 1">
+            <h3>HandPurse</h3>
+            <p>$15.00</p>
+        </div>
+
+        <div class="card">
+            <img src="./image/handbag2.jpg" alt="Card 2">
+            <h3>HandPurse</h3>
+            <p>$20.00</p>
+        </div>
+
+        <div class="card">
+            <img src="./image/handbag3.jpg" alt="Card 3">
+            <h3>HandPurse</h3>
+            <p>$25.00</p>
+        </div>
+
+        <div class="card">
+            <img src="./image/handbag4.jpg" alt="Card 4">
+            <h3>HandPurse</h3>
+            <p>$30.00</p>
+        </div>
+    </div>
+</section>
+<section>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="./image/shoes 1.jpg" alt="Card 1">
+            <h3>Sport Shoes</h3>
+            <p>$35.00</p>
+        </div>
+
+        <div class="card">
+            <img src="./image/shoes2.jpg" alt="Card 2">
+            <h3>Sport Shoes</h3>
+            <p>$40.00</p>
+        </div>
+
+        <div class="card">
+            <img src="./image/shoes 3.jpg" alt="Card 3">
+            <h3>Sport Shoes</h3>
+            <p>$45.00</p>
+        </div>
+
+        <div class="card">
+            <img src="./image/shoes 4.jpg" alt="Card 4">
+            <h3>Sport Shoes</h3>
+            <p>$50.00</p>
+        </div>
+    </div>
+</section>
+ <secttion class="poster-section">
+        <div class="main-container">
+      <div class="paragraph">
+        <p>Winter Sales</p>
+        <h4>20% of new arrivals</h4>
+        <button class="btn">Shop Now</button>
+        
+      </div>
+      <div class="img">
+            <img src="./image/poster-image.png" alt="">
+        </div>
+        </div>
+    </secttion>
+<section>
+    <div class="card-container">
+        <div class="card">
+            <img src="./image/perfume1.jpg" alt="Card 1">
+            <h3>Noir Perfume</h3>
+            <p>$35.00</p>
+        </div>
+
+        <div class="card">
+            <img src="./image/perfume 2.jpg" alt="Card 2">
+            <h3>Shalimar Perfume</h3>
+            <p>$40.00</p>
+        </div>
+
+        <div class="card">
+            <img src="./image/perfume 3.jpg" alt="Card 3">
+            <h3>Noir Perfume</h3>
+            <p>$45.00</p>
+        </div>
+
+        <div class="card">
+            <img src="./image/perfume4.jpg" alt="Card 4">
+            <h3>Classic Perfume</h3>
+            <p>$50.00</p>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="team-section">
+      <h3>Meet Our Team</h3>
+      <div class="team-members">
+        <div class="team-member">
+          <img src="./image/person1.jpg" alt="Manager">
+          <h4>Emily Thompsome</h4>
+          <p>London united kingdom</p>
+          <p class="para">Absolutly love their new arrivals stylish pieace that perfectly and last long</p>
+          <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+             <i class="fa fa-star-half-alt"></i>
+        </div>
+        <div class="team-member">
+          <img src="./image/person2.jpg" alt="Sales Manager">
+          <h4>Sophia martinez</h4>
+          <p>Son francisco, USA</p>
+          <p class="para">Fashion always keeps my wardrobe fresh and trendy. The quality is amazing and delivery is super fast.</p>
+          <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+             <i class="fa fa-star-half-alt"></i>
+        </div>
+        <div class="team-member">
+          <img src="./image/person3.jpg" alt="Technician">
+          <h4>Yuna Park</h4>
+          <p style="font-size: 13px; font-weight: 10px;">Seoul South Korea</p>
+           <p class="para">Great Customor Service and beautiful design.Fashion has become my go to store for every season.</p>
+          <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+             <i class="fa fa-star-half-alt"></i>
+        </div>
+        </section>
+    <!-- Footer Bottom -->
+    <footer>
+    <div class="footer-container">
+        
+        <!-- About Section -->
+        <div class="footer-about">
+            <p class="logo">Shopify</p>
+            <p>Urbanwear brings you curated collections of modern, stylish, and affordable outfits for every occasion.</p>
+            <div class="social-icon">
+                <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://pinterest.com" target="_blank" class="pinterest"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+
+        <!-- Shop Links -->
+        <div class="quick-links">
+            <h3>Shop</h3>
+            <ul>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Featured Products</a></li>
+                <li><a href="#">On Sale</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Best Sellers</a></li>
+            </ul>
+        </div>
+
+        <!-- Customer Service -->
+        <div class="quick-links">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newslatter">
+            <h3>Stay Updated</h3>
+            <p>Subscribe to get the latest updates on new arrivals and special offers.</p>
+            <form action="#">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-x">Subscribe</button>
+            </form>
+            <img src="./image/payments.png" alt="payment methods">
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Studentaptech753@gmail.com | All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- javascript -->
+ <script>
+function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("active");
+}
+</script>
+
+
+</body>
+</html>
+
+
+
